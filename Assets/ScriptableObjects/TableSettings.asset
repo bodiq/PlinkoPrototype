@@ -20,7 +20,7 @@ MonoBehaviour:
     GateHeightOffset: 0.4
   - RowCount: 14
     GateScaleCoefficient: 6
-    GateHeightOffset: 0.375
+    GateHeightOffset: 0.37
   - RowCount: 16
     GateScaleCoefficient: 3
-    GateHeightOffset: 0.35
+    GateHeightOffset: 0.3
