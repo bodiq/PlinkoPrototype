@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class TableGeneration : MonoBehaviour
@@ -6,10 +7,13 @@ public class TableGeneration : MonoBehaviour
     [SerializeField] private Transform secondTable;
     [SerializeField] private Transform thirdTable;
 
-    [SerializeField] private float pyramidWidth = 6f;
+    [SerializeField] private float pyramidWidth = 7f;
     [SerializeField] private float pyramidHeight = 7f;
-    
-    public GameObject pinPrefab;
+
+    [SerializeField] private GameObject pinPrefab;
+    [SerializeField] private Gate gatePrefab;
+
+    private int baseCountRows = 12;
 
     private void Start()
     {
@@ -21,8 +25,21 @@ public class TableGeneration : MonoBehaviour
     private void GeneratePins(int rows, Transform parent)
     {
         var rowSpacing = pyramidHeight / (rows - 1); 
-        var pinSpacing = pyramidWidth / (rows - 1);  
-        
+        var pinSpacing = pyramidWidth / (rows - 1);
+
+        var dominator = rows - baseCountRows;
+
+        Vector3 scaleGate;
+
+        if (dominator <= 0)
+        {
+            scaleGate = gatePrefab.transform.localScale;
+        }
+        else
+        {
+            scaleGate = gatePrefab.transform.localScale - gatePrefab.transform.localScale / (baseCountRows / dominator);
+        }
+
         var startY = pyramidHeight / 2f; 
         
         var firstRowOffsetX = -pinSpacing; 
@@ -46,6 +63,14 @@ public class TableGeneration : MonoBehaviour
                 var yPosition = startY - row * rowSpacing;
                 var position = new Vector2(xPosition, yPosition);
                 Instantiate(pinPrefab, position, Quaternion.identity, parent);
+
+                if (row == rows - 1 && col < pinsInRow - 1)
+                {
+                    var gatePos = new Vector2(position.x + pinSpacing / 2, position.y - 0.4f);
+                    var gate = Instantiate(gatePrefab, gatePos, Quaternion.identity, parent);
+                    
+                    gate.transform.localScale = scaleGate;
+                }
             }
         }
     }
