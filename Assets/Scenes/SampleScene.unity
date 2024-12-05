@@ -420,13 +420,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e92adfc5d9680469eee9838bdbc578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstTable: {fileID: 1060438911}
-  secondTable: {fileID: 776368614}
-  thirdTable: {fileID: 2131315977}
+  tablesParents:
+  - {fileID: 1060438911}
+  - {fileID: 776368614}
+  - {fileID: 2131315977}
   pyramidWidth: 7
   pyramidHeight: 7
-  pinPrefab: {fileID: 7185944886939245137, guid: 457b9df878543564cb75996704c17272, type: 3}
-  gatePrefab: {fileID: 1467510643272418074, guid: 3d2c8c5a9e78f8a43bc992ebad2b8b4d, type: 3}
+  tableSettings: {fileID: 11400000, guid: 29d90b35e53b78343942b2ae7dd4bd20, type: 2}
 --- !u!114 &1024467724
 MonoBehaviour:
   m_ObjectHideFlags: 0

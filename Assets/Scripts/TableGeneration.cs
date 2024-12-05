@@ -1,43 +1,45 @@
 using System.Threading.Tasks;
+using Data;
+using ScriptableObjects;
 using UnityEngine;
 
 public class TableGeneration : MonoBehaviour
 {
-    [SerializeField] private Transform firstTable;
-    [SerializeField] private Transform secondTable;
-    [SerializeField] private Transform thirdTable;
+    [SerializeField] private Transform[] tablesParents;
 
     [SerializeField] private float pyramidWidth = 7f;
     [SerializeField] private float pyramidHeight = 7f;
 
-    [SerializeField] private GameObject pinPrefab;
-    [SerializeField] private Gate gatePrefab;
+    [SerializeField] private TableSettings tableSettings;
 
     private int baseCountRows = 12;
 
     private void Start()
     {
-        GeneratePins(12, firstTable);
-        GeneratePins(14, secondTable);
-        GeneratePins(16, thirdTable);
+        for (var i = 0; i < tableSettings.Tables.Count; i++)
+        {
+            var table = tableSettings.Tables[i];
+            
+            GeneratePins(table, tablesParents[i]);
+        }
     }
 
-    private void GeneratePins(int rows, Transform parent)
+    private void GeneratePins(TableData tableData, Transform parent)
     {
+        var rows = tableData.RowCount;
+        
         var rowSpacing = pyramidHeight / (rows - 1); 
         var pinSpacing = pyramidWidth / (rows - 1);
 
-        var dominator = rows - baseCountRows;
-
         Vector3 scaleGate;
 
-        if (dominator <= 0)
+        if (tableData.GateScaleCoefficient <= 0)
         {
-            scaleGate = gatePrefab.transform.localScale;
+            scaleGate = tableSettings.GatePrefab.transform.localScale;
         }
         else
         {
-            scaleGate = gatePrefab.transform.localScale - gatePrefab.transform.localScale / (baseCountRows / dominator);
+            scaleGate = tableSettings.GatePrefab.transform.localScale - tableSettings.GatePrefab.transform.localScale / tableData.GateScaleCoefficient;
         }
 
         var startY = pyramidHeight / 2f; 
@@ -48,7 +50,7 @@ public class TableGeneration : MonoBehaviour
             var xPosition = firstRowOffsetX + col * pinSpacing;
             var yPosition = startY;
             var position = new Vector2(xPosition, yPosition);
-            Instantiate(pinPrefab, position, Quaternion.identity, parent);
+            Instantiate(tableSettings.PinPrefab, position, Quaternion.identity, parent);
         }
         
         for (var row = 1; row < rows; row++)
@@ -62,12 +64,12 @@ public class TableGeneration : MonoBehaviour
                 var xPosition = offsetX + col * pinSpacing;
                 var yPosition = startY - row * rowSpacing;
                 var position = new Vector2(xPosition, yPosition);
-                Instantiate(pinPrefab, position, Quaternion.identity, parent);
+                Instantiate(tableSettings.PinPrefab, position, Quaternion.identity, parent);
 
                 if (row == rows - 1 && col < pinsInRow - 1)
                 {
-                    var gatePos = new Vector2(position.x + pinSpacing / 2, position.y - 0.4f);
-                    var gate = Instantiate(gatePrefab, gatePos, Quaternion.identity, parent);
+                    var gatePos = new Vector2(position.x + pinSpacing / 2, position.y - tableData.GateHeightOffset);
+                    var gate = Instantiate(tableSettings.GatePrefab, gatePos, Quaternion.identity, parent);
                     
                     gate.transform.localScale = scaleGate;
                 }

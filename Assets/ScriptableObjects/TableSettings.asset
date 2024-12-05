@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b358a18a674eda882fff9553b1ef1e, type: 3}
+  m_Name: TableSettings
+  m_EditorClassIdentifier: 
+  pinPrefab: {fileID: 7185944886939245137, guid: 457b9df878543564cb75996704c17272, type: 3}
+  gatePrefab: {fileID: 1467510643272418074, guid: 3d2c8c5a9e78f8a43bc992ebad2b8b4d, type: 3}
+  tables:
+  - RowCount: 12
+    GateScaleCoefficient: 0
+    GateHeightOffset: 0.4
+  - RowCount: 14
+    GateScaleCoefficient: 6
+    GateHeightOffset: 0.375
+  - RowCount: 16
+    GateScaleCoefficient: 3
+    GateHeightOffset: 0.35
