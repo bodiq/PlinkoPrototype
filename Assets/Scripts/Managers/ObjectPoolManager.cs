@@ -39,7 +39,7 @@ namespace Managers
             }
         }
         
-        public Ball GetResource(ColorTypes colorType)
+        public Ball GetBall(ColorTypes colorType)
         {
             var pool = GetPool(colorType);
             if (pool == null) return null;
@@ -64,7 +64,7 @@ namespace Managers
             return pool;
         }
 
-        public void ReturnResource(ColorTypes colorType, Ball ball)
+        public void ReturnBall(ColorTypes colorType, Ball ball)
         {
             var pool = GetPool(colorType);
             if (pool == null)

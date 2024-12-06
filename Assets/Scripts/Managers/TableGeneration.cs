@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class TableGenerationManager : MonoBehaviour
+    public class TableGeneration : MonoBehaviour
     {
         [SerializeField] private Transform[] tablesParents;
 
@@ -12,8 +12,6 @@ namespace Managers
         [SerializeField] private float pyramidHeight = 7f;
 
         [SerializeField] private TableSettings tableSettings;
-
-        private int baseCountRows = 12;
 
         private void Start()
         {

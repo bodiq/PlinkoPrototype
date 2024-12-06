@@ -10,9 +10,18 @@ namespace Configs
         {
             get
             {
-                if (_instance == null) 
+                if (_instance == null)
                 {
-                    Debug.LogError($"[MonoSingleton] Instance of {typeof(T)} is needed but not present in the scene.");
+                    // Спробуємо знайти екземпляр у сцені
+                    _instance = FindObjectOfType<T>();
+
+                    // Якщо не знайдено, створимо новий об'єкт
+                    if (_instance == null)
+                    {
+                        GameObject singletonObject = new GameObject(typeof(T).Name);
+                        _instance = singletonObject.AddComponent<T>();
+                        Debug.LogWarning($"[MonoSingleton] Instance of {typeof(T)} created dynamically.");
+                    }
                 }
 
                 return _instance;
