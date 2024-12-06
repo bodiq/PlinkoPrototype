@@ -11,5 +11,7 @@ namespace Data
         public ColorTypes colorType;
         public Transform boxObject;
         public TextMeshPro textObject;
+
+        public float multiplier;
     }
 }
