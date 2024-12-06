@@ -12,10 +12,9 @@ namespace Configs
             {
                 if (_instance == null)
                 {
-                    // Спробуємо знайти екземпляр у сцені
+                    
                     _instance = FindObjectOfType<T>();
-
-                    // Якщо не знайдено, створимо новий об'єкт
+                    
                     if (_instance == null)
                     {
                         GameObject singletonObject = new GameObject(typeof(T).Name);

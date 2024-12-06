@@ -1,4 +1,6 @@
+using System;
 using Data;
+using Enums;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -13,6 +15,8 @@ namespace Managers
 
         [SerializeField] private TableSettings tableSettings;
 
+        private GameObject _activeTable;
+
         private void Start()
         {
             for (var i = 0; i < tableSettings.Tables.Count; i++)
@@ -20,6 +24,32 @@ namespace Managers
                 var table = tableSettings.Tables[i];
             
                 GeneratePins(table, tablesParents[i]);
+            }
+
+            _activeTable = tablesParents[0].gameObject;
+        }
+
+        public void TurnOnTable(TablesEnum tablesEnum)
+        {
+            switch (tablesEnum)
+            {
+                case TablesEnum.First:
+                    _activeTable.SetActive(false);
+                    _activeTable = tablesParents[0].gameObject;
+                    _activeTable.SetActive(true);
+                    break;
+                case TablesEnum.Second:
+                    _activeTable.SetActive(false);
+                    _activeTable = tablesParents[1].gameObject;
+                    _activeTable.SetActive(true);
+                    break;
+                case TablesEnum.Third:
+                    _activeTable.SetActive(false);
+                    _activeTable = tablesParents[2].gameObject;
+                    _activeTable.SetActive(true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(tablesEnum), tablesEnum, null);
             }
         }
 
