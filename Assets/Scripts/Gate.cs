@@ -11,10 +11,16 @@ public class Gate : MonoBehaviour
 
     public Dictionary<ColorTypes, GateData> ColoredGates = new();
     
-    public void Initialize()
+    public void Initialize(float[] multipliers)
     {
-        foreach (var box in boxesInfo)
+        for (var i = 0; i < boxesInfo.Count; i++)
         {
+            var box = boxesInfo[i];
+            var multiplier = multipliers[i];
+
+            box.multiplier = multiplier;
+            box.textObject.text = multiplier.ToString();
+            
             ColoredGates.Add(box.colorType, box);
         }
     }

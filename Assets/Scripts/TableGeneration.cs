@@ -27,7 +27,9 @@ public class TableGeneration : MonoBehaviour
     private void GeneratePins(TableData tableData, Transform parent)
     {
         var rows = tableData.RowCount;
-        
+
+        tableSettings.MultiplierTables.TryGetValue(rows, out var multipliersArray);
+
         var rowSpacing = pyramidHeight / (rows - 1); 
         var pinSpacing = pyramidWidth / (rows - 1);
 
@@ -70,7 +72,19 @@ public class TableGeneration : MonoBehaviour
                 {
                     var gatePos = new Vector2(position.x + pinSpacing / 2, position.y - tableData.GateHeightOffset);
                     var gate = Instantiate(tableSettings.GatePrefab, gatePos, Quaternion.identity, parent);
-                    
+
+                    if (multipliersArray != null)
+                    {
+                        var multipliers = new float[]
+                        {
+                            multipliersArray[0][col],
+                            multipliersArray[1][col],
+                            multipliersArray[2][col]
+                        };
+                        
+                        gate.Initialize(multipliers);
+                    }
+
                     gate.transform.localScale = scaleGate;
                 }
             }

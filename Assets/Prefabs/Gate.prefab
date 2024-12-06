@@ -91,6 +91,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15539107bf1b8a54184ac74e0755f0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxesInfo:
+  - colorType: 0
+    boxObject: {fileID: 7596034221299548549}
+    textObject: {fileID: 2020656244848974896}
+    multiplier: 0
+  - colorType: 1
+    boxObject: {fileID: 4017469533471084430}
+    textObject: {fileID: 2168322844375452126}
+    multiplier: 0
+  - colorType: 2
+    boxObject: {fileID: 4742971308243590305}
+    textObject: {fileID: 8161475982946543816}
+    multiplier: 0
 --- !u!1 &1066495473849449679
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,11 +236,11 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 5
   m_fontSizeMax: 6
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -513,11 +526,11 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 5
   m_fontSizeMax: 6
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -854,11 +867,11 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 5
   m_fontSizeMax: 6
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

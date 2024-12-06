@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6d41c2de-b00a-44e2-b8f4-2050add59bd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PlinkoPrototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PlinkoPrototype/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TableSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/TableSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TableGeneration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TableGeneration.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1733408336654</updated>
       <workItem from="1733408339805" duration="4535000" />
-      <workItem from="1733476509694" duration="1339000" />
+      <workItem from="1733476509694" duration="2282000" />
     </task>
     <servers />
   </component>
